@@ -1,0 +1,214 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,*:before,*::after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family: inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0; border: 0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}
+
+:root {
+    --index: calc(1vh + 1vw);
+}
+
+@font-face {
+    font-family: Roboto-light;
+    src: url('../fonts/Roboto-Light.eot'),
+         url('../fonts/Roboto-Light.woff'),
+         url('../fonts/Roboto-Light.ttf');
+}
+
+body {
+    position: relative;
+}
+ 
+.menu {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 100%;
+    padding: 19.5vh 0 0 4vh;
+    background-color: rgb(24, 24, 24);
+    font-family: Roboto-light;
+    font-weight: 300;
+    font-size: 40px;
+    color: white;
+    transition: all .6s ease;
+    overflow: hidden;
+}
+.menu.active {
+    transform: translateX(100%);
+}   
+
+.menu__nav ul li {
+    line-height: 1.2;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    text-transform: uppercase;
+}
+.menu__nav ul li:not(:first-child) {
+    margin-top: 40px;
+}
+.menu__nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+.menu__nav ul li a:hover {
+    color: rgb(244, 206, 12);
+}
+.cross {
+    width: 36px;
+    height: 32px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: calc(var(--index) * 1.6);
+    right: calc(var(--index) * 1.6);
+    cursor: pointer;
+}
+.cross__line {
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    background-color: rgb(255, 199, 0);
+}
+.cross__line:first-of-type {
+    transform: rotate(45deg);
+}
+.cross__line:last-of-type {
+    transform: rotate(315deg);
+}
+
+.footer {
+    width: 100%;
+    height: 60px;
+    background-color: rgb(39, 39, 39);
+    padding: 20px 40px 0 20px;
+    display: flex;
+}
+.footer__title {
+    flex-grow: 1;
+}
+.hamburger {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.hamburger__line {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(105, 105, 105);
+}
+
+.slogan {
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: url('../img/background_space.jpg');
+}
+.quotation {
+    width: 100%;
+    height: 60vh;
+    background:  url("../img/Rectangle_1.png") center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.quotation__sheet_middle, .quotation__sheet_top {
+    width: 100%;
+    height: 60vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    img {
+        width: 100%;
+        min-height: 100%;
+    }
+}
+
+
+@media (max-width: 1199px) {
+  
+}
+
+@media (max-width: 991px) {
+    .menu {
+        font-size: 32px;
+    }
+    .menu__nav ul li:not(:first-child) {
+        margin-top: 30px;
+    }
+    .footer {
+        padding: 20px 30px 0 20px;
+    }
+}
+
+@media (max-width: 767px) {
+  
+}
+
+@media (max-width: 575px) {
+    .menu {
+        font-size: 16px;
+    }
+    .menu__nav ul li:not(:first-child) {
+        margin-top: 27px;
+    }
+    .cross {
+        width: 30px;
+        height: 28px;
+    }
+    .cross__line {
+        width: 30px;
+        height: 4px;
+    }
+    .footer {
+        height: 46px;
+        padding: 16px 16px 0 20px;
+    }
+    .hamburger {
+        width: 24px;
+        height: 17px;
+    }
+    .hamburger__line {
+        height: 3px;
+    }
+    .slogan {
+        height: calc(100vh - 46px);
+    }
+}
