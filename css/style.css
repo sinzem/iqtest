@@ -151,14 +151,14 @@ h1, h2, h3, h4, h5 {
     transform: rotate(315deg);
 }
 
-.footer {
+.header{
     width: 100%;
     height: 60px;
     background-color: rgb(39, 39, 39);
     padding: 20px 40px 0 20px;
     display: flex;
 }
-.footer__title {
+.header__title {
     flex-grow: 1;
 }
 .hamburger {
@@ -177,30 +177,9 @@ h1, h2, h3, h4, h5 {
 
 .slogan {
     width: 100%;
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
+    padding: 4vh 0;
     background: url('../img/background_space.jpg');
-}
-.quotation {
-    width: 100%;
-    height: 60vh;
-    background:  url("../img/Rectangle_1.png") center no-repeat;
-    background-size: cover;
-    position: relative;
-}
-.quotation__sheet_middle, .quotation__sheet_top {
-    width: 100%;
-    height: 60vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    img {
-        width: 100%;
-        min-height: 100%;
-    }
 }
 .slogan {
     display: flex;
@@ -266,6 +245,13 @@ h1, h2, h3, h4, h5 {
     text-align: center;
     margin-top: 1vh;
     letter-spacing: 1px;
+}.quotation {
+    width: 100%;
+    height: 60vh;
+    min-height: 340px;
+    background:  url("../img/Rectangle_1.png") center no-repeat;
+    background-size: cover;
+    position: relative;
 }
 .quotation__wrap {
     width: 420px;
@@ -276,6 +262,22 @@ h1, h2, h3, h4, h5 {
     font-family: Yeseva;
     color: white;
     text-align: center;
+}
+.quotation__sheet_middle, .quotation__sheet_top {
+    width: 100%;
+    height: 60vh;
+    min-height: 340px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    img {
+        width: 100%;
+        min-height: 100%;
+    }
 }
 .quotation__description {
     font-size: 26px;
@@ -319,13 +321,17 @@ h1, h2, h3, h4, h5 {
 }
 
 .final {
+    position: relative;
     padding: 7vh 2vw 3vh;
     background: url("../img/background_space.jpg");
+    overflow: hidden;
 }
 .final__description {
+    position: relative;
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.3;
+    z-index: 2;
     span {
         font-weight: bold;
     }
@@ -346,10 +352,12 @@ h1, h2, h3, h4, h5 {
     border-radius: 20px;
 }
 .final__button {
+    position: relative;
     background: bottom;
     border: 1px solid white;
     color: white;
     margin-top: 5vh;
+    z-index: 2;
 }
 .final__copy {
     margin-top: 7vh;
@@ -365,6 +373,19 @@ h1, h2, h3, h4, h5 {
         height: 1px;
     }
 }
+.final__lightning {
+    position: absolute;
+}
+.final__lightning_top {
+    top: 0vh;
+    right: -120px;
+    transform: rotate(33deg);
+}
+.final__lightning_bottom {
+    top: 15vh;
+    left: -100px;
+    transform: rotate(-33deg);
+}
 
 @media (max-width: 1199px) {
   
@@ -374,7 +395,7 @@ h1, h2, h3, h4, h5 {
     .menu__nav ul li:not(:first-child) {
         margin-top: 30px;
     }
-    .footer {
+    .header {
         padding: 20px 30px 0 20px;
     }
     .slogan__subtitle {
@@ -443,7 +464,7 @@ h1, h2, h3, h4, h5 {
         width: 30px;
         height: 4px;
     }
-    .footer {
+    .header {
         height: 46px;
         padding: 16px 16px 0 20px;
     }
@@ -455,7 +476,7 @@ h1, h2, h3, h4, h5 {
         height: 3px;
     }
     .slogan {
-        height: calc(100vh - 46px);
+        min-height: calc(100vh - 46px);
     }
     .slogan__wrap {
         padding: 1vh 0;
@@ -531,5 +552,22 @@ h1, h2, h3, h4, h5 {
         span {
             width: 8px;
         }
+    }
+    .final__lightning {
+        width: 165px;
+        height: 165px;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .final__lightning_top {
+        top: 16vh;
+        right: -44px;
+    }
+    .final__lightning_bottom {
+        top: 56vh;
+        left: -42px;
+        transform: rotate(-33deg);
     }
 }
