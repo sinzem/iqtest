@@ -560,6 +560,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .processing {
+    display: none;
     min-height: 100vh;
     background: url("../img/background_space.jpg");
 }
@@ -591,9 +592,19 @@ h1, h2, h3, h4, h5 {
 }
 
 .result {
+    display: none;
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    background: url("../img/background_space.jpg");
+}
+.result__wrap {
+    max-width: 400px;
+    margin: 0 auto;
+}
+.result__header {
+    position: relative;
+    z-index: 5;
 }
 .result__header__label {
     h2 {
@@ -603,6 +614,128 @@ h1, h2, h3, h4, h5 {
         letter-spacing: 2px;
         margin-left: 24px;
     }
+}
+.result__title {
+    margin: 3vh auto 0;
+    font-family: PTserif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.result__description {
+    margin: 2vh auto 0;
+    font-family: PTserif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    span {
+        font-weight: 700;
+    }
+}
+.result__command {
+    margin: 10vh auto 0;
+    font-family: PTserif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.3;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgb(59, 222, 124);
+}
+.result__security {
+    margin: 2vh auto 0;
+    width: 80%;
+    padding: 15px;
+    font-family: Roboto-light;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background-color: #1C2741;
+    border-radius: 8px;
+}
+.result__calling {
+    height: fit-content;
+    width: 100%;
+}
+.result__timer {
+    position: relative;
+    width: 80%;
+    margin: 2vh auto 0;
+    font-family: PTserif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.3;
+    letter-spacing: 1.4px;
+    color: rgb(59, 222, 124);
+    z-index: 5;
+    span {
+        font-size: 24px;
+    }
+}
+.result__call {
+    position: relative;
+    margin: 2vh auto 0;
+    padding: 20px 10px 20px 15px; 
+    background-color: #EB1B00;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    max-width: 90%;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 5;
+    a {
+        text-decoration: none;
+        font-family: Roboto-light;
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 1.5px;
+        color: white;
+    }
+}
+.result__button-block {
+    display: none;
+    position: relative;
+    height: fit-content;
+    width: 100%;
+    z-index: 5;
+}
+.result__button {
+    margin: 3vh auto 0;
+}
+.result__lightning_top {
+    top: 50vh;
+    right: -180px;
+}
+.result__lightning_bottom {
+    top: 40vh;
+    left: -160px;
+}
+.footer {
+    position: relative;
+    margin: 36vh auto 0;
+    max-width: 90%;
+    max-height: 32px;
+    font-family: Roboto-light;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 3px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    overflow: auto;
+      -ms-overflow-style: none;
+       scrollbar-width: none;
+    scroll-behavior: smooth;
+    z-index: 5;
+}
+.footer::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 @media (max-width: 1199px) {
@@ -824,6 +957,73 @@ h1, h2, h3, h4, h5 {
     .result__header__label {
         h2 {
             font-size: 20px;
+            margin-left: 18px;
         }
+    }
+    .result__wrap {
+        max-width: 320px;
+    }
+    .result__title {
+        font-size: 16px;
+    }
+    .result__description {
+        font-size: 14px;
+    }
+    .result__command {
+        font-size: 18px;
+    }
+    .result__security {
+        font-size: 8px;
+    }
+    .result__timer {
+        font-size: 11px;
+        span {
+            font-size: 18px;
+        }
+    }
+    .result__call {
+        h4 {
+            font-size: 15px;
+        }
+    }
+    .result__button-block {
+        display: none;
+        position: relative;
+        height: fit-content;
+        width: 100%;
+        z-index: 5;
+    }
+    .result__button {
+        margin: 3vh auto 0;
+    }
+    .result__lightning_top {
+        top: 63vh;
+        right: -87px;
+    }
+    .result__lightning_bottom {
+        top: 70vh;
+        left: -70px;
+    }
+    .footer {
+        position: relative;
+        margin: 36vh auto 0;
+        max-width: 90%;
+        max-height: 32px;
+        font-family: Roboto-light;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 1.2;
+        letter-spacing: 3px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
+        overflow: auto;
+          -ms-overflow-style: none;
+           scrollbar-width: none;
+        scroll-behavior: smooth;
+        z-index: 5;
+    }
+    .footer::-webkit-scrollbar {
+        width: 0;
+        height: 0;
     }
 }
