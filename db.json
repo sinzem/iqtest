@@ -2,7 +2,7 @@
     "tests":[
         {
             "id": "1",
-            "name": "sex",
+            "name": "1_user_sex",
             "type": "list",
             "title": "Ваш пол:",
             "options": [
@@ -12,7 +12,7 @@
         },
         {
             "id": "2",
-            "name": "age",
+            "name": "2_user_age",
             "type": "list",
             "title": "Укажите Ваш возраст:",
             "options": [
@@ -24,7 +24,7 @@
         },
         {
             "id": "3",
-            "name": "extra_building",
+            "name": "3_extra_building",
             "type": "list",
             "title": "Выберите лишнее:",
             "options": [
@@ -37,7 +37,7 @@
         },
         {
             "id": "4",
-            "name": "number_series",
+            "name": "4_number_series",
             "type": "list",
             "title": "Продолжите числовой ряд:",
             "subtitle": "18  20  24  32",
@@ -52,41 +52,41 @@
         },
         {
             "id": "5",
-            "name": "color_selection_1",
+            "name": "5_color_selection",
             "type": "color",
             "title": "Выберите цвет, который наиболее вам приятен:",
             "options": [
-                "#A8A8A8",
-                "#0000A9",
-                "#00A701",
-                "#F60100",
-                "#FDFF19",
-                "#A95403",
-                "#000000",
-                "#850068",
-                "#46B3AC"
+                ["grey", "#A8A8A8"],
+                ["blue", "#0000A9"],
+                ["green", "#00A701"],
+                ["red", "#F60100"],
+                ["yellow", "#FDFF19"],
+                ["cooper", "#A95403"],
+                ["black", "#000000"],
+                ["fucsia", "#850068"],
+                ["aquamarine", "#46B3AC"]
             ]
         },
         {
             "id": "6",
-            "name": "color_selection_2",
+            "name": "6_color_selection",
             "type": "color",
             "title": "Отдохните пару секунд, еще раз выберите цвет, который сейчас наиболее Вам приятен:",
             "options": [
-                "#A8A8A8",
-                "#46B3AC",
-                "#A95403",
-                "#00A701",
-                "#000000",
-                "#F60100",
-                "#850068",
-                "#FDFF19",
-                "#0000A9"
+                ["grey", "#A8A8A8"],
+                ["aquamarine", "#46B3AC"],
+                ["cooper", "#A95403"],
+                ["green", "#00A701"],
+                ["black", "#000000"],
+                ["red", "#F60100"],
+                ["fucsia", "#850068"],
+                ["yellow", "#FDFF19"],
+                ["blue", "#0000A9"]
             ]
         },
         {
             "id": "7",
-            "name": "extra_city",
+            "name": "7_extra_city",
             "type": "list",
             "title": "Какой из городов лишний?",
             "options": [
@@ -100,7 +100,7 @@
         },
         {
             "id": "8",
-            "name": "right_figure",
+            "name": "8_right_figure",
             "type": "image_number",
             "title": "Выберите правильную фигуру из четырех пронумерованных:",
             "img": "img/people_figure.png",
@@ -113,7 +113,7 @@
         },
         {
             "id": "9",
-            "name": "important_habits",
+            "name": "9_important_habits",
             "type": "list",
             "title": "Вам привычнее и важнее:",
             "options": [
@@ -124,7 +124,7 @@
         },
         {
             "id": "10",
-            "name": "geometric_picture",
+            "name": "10_geometric_picture",
             "type": "image_list",
             "title": "Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:",
             "img": "img/illegible_rombus.png",
@@ -136,7 +136,7 @@
         },
         {
             "id": "11",
-            "name": "number_in_star",
+            "name": "11_number_in_star",
             "type": "image_number",
             "title": "Вставьте подходящее число:",
             "img": "img/star_number.png",
