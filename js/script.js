@@ -48,6 +48,9 @@ window.addEventListener("DOMContentLoaded", () => {
             str += `<p>${response[key]}</p>`
         }
         footer.innerHTML = `${str}`;
+        clearTimeout(int);
+        resultCall.style.display = "none";
+        resultButtons.style.display = "block";
     })
 
     // for slider
@@ -77,6 +80,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 resultPage.style.display = "none";
                 resultButtons.style.display = "none";
                 resultCall.style.display = "block";
+                footer.innerHTML = '';
                 sliderTape.innerHTML = '';
                 answers = {};
                 slides = [];
@@ -101,6 +105,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     processingPage.style.display = "block";
                 }, 300);
                 console.log(answers);
+                end = Date.parse(new Date()) + 605000; 
                 // let response = await fetch("https://swapi.dev/api/people/1/", {
                 //     method: 'POST',
                 //     headers: {
@@ -172,14 +177,15 @@ window.addEventListener("DOMContentLoaded", () => {
     function showResultPage() {
         processingPage.style.display = "none";
         resultPage.style.display = "block";
-        timer();
+        // timer();
+        int();
     }
 
-    function timer() {
+    // function timer() {
         const minutes = resultPage.querySelector("#minutes");
         const seconds = resultPage.querySelector("#seconds");
         let min, sec, time;
-        const end = Date.parse(new Date()) + 600000; 
+        let end/*  = Date.parse(new Date()) + 600000 */; 
         const int = () => {
             setTimeout(() => {
                 time = end - Date.parse(new Date());
@@ -197,8 +203,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
             }, 1000)
         }
-        int();
-    }
+    //     int();
+    // }
 
     function getZero(num) { 
         if (num >= 0 && num < 10) {
