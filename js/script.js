@@ -177,34 +177,31 @@ window.addEventListener("DOMContentLoaded", () => {
     function showResultPage() {
         processingPage.style.display = "none";
         resultPage.style.display = "block";
-        // timer();
         int();
     }
 
-    // function timer() {
-        const minutes = resultPage.querySelector("#minutes");
-        const seconds = resultPage.querySelector("#seconds");
-        let min, sec, time;
-        let end/*  = Date.parse(new Date()) + 600000 */; 
-        const int = () => {
-            setTimeout(() => {
-                time = end - Date.parse(new Date());
-                if (time <= 0) {
-                    resultCall.style.display = "none";
-                    resultButtons.style.display = "block";
-                    minutes.innerHTML = "10";
-                    seconds.innerHTML = "00";
-                } else {
-                    min = Math.floor((time / 1000 / 60) % 60); 
-                    sec = Math.floor((time / 1000) % 60); 
-                    minutes.innerHTML = getZero(min);
-                    seconds.innerHTML = getZero(sec); 
-                    int();
-                }
-            }, 1000)
-        }
-    //     int();
-    // }
+    const minutes = resultPage.querySelector("#minutes");
+    const seconds = resultPage.querySelector("#seconds");
+    let min, sec, time;
+    let end; 
+    const int = () => {
+        setTimeout(() => {
+            time = end - Date.parse(new Date());
+            if (time <= 0) {
+                resultCall.style.display = "none";
+                resultButtons.style.display = "block";
+                minutes.innerHTML = "10";
+                seconds.innerHTML = "00";
+            } else {
+                min = Math.floor((time / 1000 / 60) % 60); 
+                sec = Math.floor((time / 1000) % 60); 
+                minutes.innerHTML = getZero(min);
+                seconds.innerHTML = getZero(sec); 
+                int();
+            }
+        }, 1000)
+    }
+ 
 
     function getZero(num) { 
         if (num >= 0 && num < 10) {
