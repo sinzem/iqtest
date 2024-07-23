@@ -40,7 +40,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const callButton = document.querySelector(".result__call");
     const footer = document.querySelector(".footer");
 
-    callButton.addEventListener("click", async () => {
+    callButton.addEventListener("click", async (e) => {
+        e.preventDefault();
         const response = await getData("https://swapi.dev/api/people/1/");
         let str = '';
         for (let key in response) {
