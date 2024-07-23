@@ -530,6 +530,9 @@ h1, h2, h3, h4, h5 {
         border-radius: 50%;
     }
 }
+.li {
+    cursor: pointer;
+}
 .li-list.active {
     background-color: var(--main-color);
     color: black; 
@@ -739,18 +742,21 @@ h1, h2, h3, h4, h5 {
     margin: 36vh auto 0;
     max-width: 90%;
     max-height: 32px;
-    font-family: Roboto-light;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 1.2;
-    letter-spacing: 3px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.5);
     overflow: auto;
       -ms-overflow-style: none;
        scrollbar-width: none;
-    scroll-behavior: smooth;
-    z-index: 5;
+        scroll-behavior: smooth;
+        z-index: 5;
+    p {
+        font-family: Roboto-light;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 1.2;
+        letter-spacing: 3px;
+        text-align: center;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+    }
 }
 .footer::-webkit-scrollbar {
     width: 0;
@@ -1022,27 +1028,5 @@ h1, h2, h3, h4, h5 {
     .result__lightning_bottom {
         top: 70vh;
         left: -70px;
-    }
-    .footer {
-        position: relative;
-        margin: 36vh auto 0;
-        max-width: 90%;
-        max-height: 32px;
-        font-family: Roboto-light;
-        font-weight: 400;
-        font-size: 10px;
-        line-height: 1.2;
-        letter-spacing: 3px;
-        text-align: center;
-        color: rgba(255, 255, 255, 0.5);
-        overflow: auto;
-          -ms-overflow-style: none;
-           scrollbar-width: none;
-        scroll-behavior: smooth;
-        z-index: 5;
-    }
-    .footer::-webkit-scrollbar {
-        width: 0;
-        height: 0;
     }
 }

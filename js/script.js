@@ -22,12 +22,31 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // to main page
     const toMainPage = document.querySelectorAll(".to_main");
+    const resultPage = document.querySelector(".result");
+    const resultButtons = resultPage.querySelector(".result__button-block");
+    const resultCall = resultPage.querySelector(".result__calling");
     toMainPage.forEach(trigger => {
         trigger.addEventListener("click", () => {
             if (menu.classList.contains("active")) menu.classList.remove("active"); 
             if (slider.classList.contains("active")) slider.classList.remove("active");
             main.style.display = "block";
+            resultPage.style.display = "none";
+            resultButtons.style.display = "none";
+            resultCall.style.display = "block";
         })
+    })
+
+    // for result
+    const callButton = document.querySelector(".result__call");
+    const footer = document.querySelector(".footer");
+
+    callButton.addEventListener("click", async () => {
+        const response = await getData("https://swapi.dev/api/people/1/");
+        let str = '';
+        for (let key in response) {
+            str += `<p>${response[key]}</p>`
+        }
+        footer.innerHTML = `${str}`;
     })
 
     // for slider
@@ -38,7 +57,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const sliderTape = document.querySelector(".slider__tape");
     const getSlides = document.getElementsByClassName("slide");
     const sliderProgress = document.querySelector(".slider__progress_front");
-    const processingPage = document.querySelector(".processing")
+    const processingPage = document.querySelector(".processing");
     
     let offset = 0;
     let offsetMax = 0;
@@ -51,8 +70,12 @@ window.addEventListener("DOMContentLoaded", () => {
                 if (slider.classList.contains("active")) slider.classList.remove("active")
                 if (menu.classList.contains("active")) menu.classList.remove("active"); 
                 if (sliderButton.classList.contains("active")) sliderButton.classList.remove("active"); 
-                sliderButton.style.display = "block";
+                sliderProgress.style.width = "0%";
+                sliderButton.style.visibility = "visible";
                 main.style.display = "none";
+                resultPage.style.display = "none";
+                resultButtons.style.display = "none";
+                resultCall.style.display = "block";
                 sliderTape.innerHTML = '';
                 answers = {};
                 slides = [];
@@ -63,19 +86,32 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         )
     })
-    
-    sliderButton.addEventListener("click", (e) => {
+
+    sliderButton.addEventListener("click", async (e) => {
         if (e.target.classList.contains("active")) {
             if (offset < offsetMax - 320) {
                 e.target.classList.remove("active");
                 slickSlide();
             } else {
-                e.target.style.display = "none";
+                e.target.style.visibility = "none";
                 slickSlide();
                 setTimeout(() => {
                     slider.classList.remove("active");
                     processingPage.style.display = "block";
-                }, 300)
+                }, 300);
+                console.log(answers);
+                // let response = await fetch("https://swapi.dev/api/people/1/", {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json;charset=utf-8'
+                //     },
+                //     mode: "no-cors",
+                //     body: JSON.stringify(answers)
+                // })
+                // let result = await response.json();
+                // let result = await response.text();
+                // console.log(result);
+                setTimeout(() => showResultPage(), 5000);
             }
         }
     })
@@ -116,10 +152,61 @@ window.addEventListener("DOMContentLoaded", () => {
         return testList;
     }
 
+    // async function postData(url, data) {
+    //     const postData = await fetch(url, {
+    //         method: "POST",
+    //         mode: "no-cors",
+    //         headers: {
+    //             "Content-type": "application/json",
+    //         },
+    //         data: data
+    //     }).then(data => data.json()); 
+    // }
+
     async function showProgress() {
         progressLineWidth = offset / (offsetMax / 100);
         sliderProgress.style.width = progressLineWidth + "%";
     }
+
+    function showResultPage() {
+        processingPage.style.display = "none";
+        resultPage.style.display = "block";
+        timer();
+    }
+
+    function timer() {
+        const minutes = resultPage.querySelector("#minutes");
+        const seconds = resultPage.querySelector("#seconds");
+        let min, sec, time;
+        const end = Date.parse(new Date()) + 600000; 
+        const int = () => {
+            setTimeout(() => {
+                time = end - Date.parse(new Date());
+                if (time <= 0) {
+                    resultCall.style.display = "none";
+                    resultButtons.style.display = "block";
+                    minutes.innerHTML = "10";
+                    seconds.innerHTML = "00";
+                } else {
+                    min = Math.floor((time / 1000 / 60) % 60); 
+                    sec = Math.floor((time / 1000) % 60); 
+                    minutes.innerHTML = getZero(min);
+                    seconds.innerHTML = getZero(sec); 
+                    int();
+                }
+            }, 1000)
+        }
+        int();
+    }
+
+    function getZero(num) { 
+        if (num >= 0 && num < 10) {
+            return `0${num}`;
+        } else {
+            return num;
+        }
+    }
+
     class testCard {
         constructor(id, name, type, title, subtitle = "", img, options, parentSelector) {
             this.id = id;
